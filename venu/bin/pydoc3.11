@@ -1,0 +1,5 @@
+#!/Users/srushtikamble/Documents/Projects/customer_lifetime/venu/bin/python3.11
+
+import pydoc
+if __name__ == '__main__':
+    pydoc.cli()

@@ -1,0 +1,5 @@
+#!/Users/srushtikamble/Documents/Projects/customer_lifetime/venu/bin/python3.11
+
+from idlelib.pyshell import main
+if __name__ == '__main__':
+    main()
