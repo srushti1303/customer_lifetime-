@@ -1,0 +1,63 @@
+<html>
+    <body>
+        <div class="login">
+            <h1>Customer Lifetime Value Prediction</h1>
+
+            <form action="{{url_for('predict_datapoint')}}" method="post">
+                <h1>
+                    <legend>Customer Lifetime Value Prediction</legend>
+                </h1>
+                <div class="mb-3">
+                    <label class="form-label">Age</label>
+                    <input class="form-control" type="number" name="Age"
+                    placeholder="Enter your Age" min='0' max='100' />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Salary</label>
+                    <input class="form-control" type="number" name="Salary"
+                    placeholder="Enter your Salary" min='0' max='500000' />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Quantity</label>
+                    <input class="form-control" type="number" name="Quantity"
+                    placeholder="Enter your Quantity" min='0' max='200' />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">UnitPrice</label>
+                    <input class="form-control" type="number" name="UnitPrice"
+                    placeholder="Enter the UnitPrice" min='0' max='100' />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Country</label>
+                    <select class="form-control" name="Country" placeholder="Enter your Country of Residence" required>
+                        <option class="placeholder" selected disabled value="">Select Country</option>
+                        <option value="Poland">
+                            Poland
+                        </option>
+                        <option value="Singapore">
+                            Singapore
+                        </option>
+                        <option value="Israel">
+                            Israel
+                        </option>
+                        <option value="Brazil">
+                            Brazil
+                        </option>
+                        <option value="Canada">
+                            Canada
+                        </option>
+                        <option value="Iceland">
+                            Iceland
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input class="btn btn-primary" type="submit" value="Prediction of Total Spending" required>
+                </div>
+            </form>
+            <h2>
+                The prediction is {{results}}
+            </h2>
+        </div>
+    </body>
+</html>

@@ -15,18 +15,18 @@ from src.utils import save_object
 
 
 @dataclass
-class DataTransformationConfig:
+class DataTransformationConfig:    # input 
     preprocessor_obj_file_path=os.path.join("artifacts","preprocessor.pkl")
 
 class DataTransformation:
         def __init__(self):
               self.data_transformation_config=DataTransformationConfig()
-
-        def get_data_transformer_object(self):
+        '''Data Transformation'''
+        def get_data_transformer_object(self):    #pickle files all tasks 
               try:
                     numerical_columns = ["Age", "Salary","Quantity","UnitPrice"]
                     categorical_columns = ["Country","CustomerType"]
-
+                    # traing dataset 
                     num_pipeline =Pipeline(
                           steps=[
                                 ("imputer",SimpleImputer(strategy="median")),
@@ -44,7 +44,7 @@ class DataTransformation:
 
                     logging.info(f"Categorical colums: {categorical_columns}")
                     logging.info(f"Numerical colums: {numerical_columns}")
-
+                    # combine numerical and categorical features above 
                     preprocessor=ColumnTransformer(
                           [
                                 ("num_pipeline",num_pipeline,numerical_columns),
@@ -64,7 +64,7 @@ class DataTransformation:
 
                     logging.info("Read train and test data")
                     logging.info("Obtaining preprocessing object")
-
+                    #model with all transformation
                     preprocessing_obj=self.get_data_transformer_object()
                     
                     target_column_name="TotalSpent"
@@ -91,7 +91,7 @@ class DataTransformation:
                     test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
                     logging.info("Saved preprocessing object.")
-
+                    #saving pickle file in hard dsik 
                     save_object(
 
                     file_path=self.data_transformation_config.preprocessor_obj_file_path,
